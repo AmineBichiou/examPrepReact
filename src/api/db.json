@@ -3,6 +3,11 @@
     {
       "xd": "Souris Sans Filaaa",
       "description": "Souris ergoxdique sans fil avec autoxdie de 12 moisaaa",
+      "options": [
+        "Lyon",
+        "Marseille",
+        "Paris"
+      ],
       "prix": 39.91,
       "stock": 10011,
       "categorie": "Accessoires",
@@ -12,6 +17,9 @@
       "id": "3",
       "xd": "Ecran 27 pouces",
       "description": "Ecran 4K IPS avec taux de rafraichissement 144Hz",
+      "options": [
+        "Lyon"
+      ],
       "prix": 449.99,
       "stock": 15,
       "categorie": "Moniteurs"
@@ -20,6 +28,9 @@
       "id": "4",
       "xd": "Clavier Mecanique",
       "description": "Clavier mecanique RGB avec switches Cherry MX Blue",
+      "options": [
+        "Paris"
+      ],
       "prix": 89.99,
       "stock": 60,
       "categorie": "Accessoires"
@@ -28,9 +39,22 @@
       "id": "b71f",
       "xd": "aw",
       "description": "awa",
+      "options": [],
       "prix": 11,
       "stock": 11,
       "categorie": "aqww"
+    },
+    {
+      "id": "cb4b",
+      "xd": "wwww",
+      "description": "wwwwwwwwwwwwwwwww",
+      "prix": 12,
+      "stock": 12,
+      "categorie": "Moniteurs",
+      "options": [
+        "Paris",
+        "Lyon"
+      ]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

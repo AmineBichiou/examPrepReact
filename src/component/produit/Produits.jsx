@@ -42,6 +42,11 @@ function Produits() {
                   <small className="d-block">
                     <strong>Stock:</strong> {produit.stock} unités
                   </small>
+                  {produit.options && produit.options.length > 0 && (
+                    <small className="d-block text-truncate">
+                      <strong>Options:</strong> {produit.options.join(", ")}
+                    </small>
+                  )}
                 </div>
                 <div className="d-flex gap-2">
                   <Button

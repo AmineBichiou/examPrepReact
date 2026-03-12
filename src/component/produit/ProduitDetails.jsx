@@ -66,6 +66,11 @@ function ProduitDetails() {
             <ListGroup.Item>
               <strong>Catégorie:</strong> {produit.categorie}
             </ListGroup.Item>
+            {produit.options && produit.options.length > 0 && (
+              <ListGroup.Item>
+                <strong>Options:</strong> {produit.options.join(", ")}
+              </ListGroup.Item>
+            )}
           </ListGroup>
           <div className="d-flex gap-2">
             <Button as={Link} to="/produits" variant="secondary">

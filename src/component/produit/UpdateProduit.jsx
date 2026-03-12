@@ -18,6 +18,7 @@ const produitSchema = z.object({
     .min(1, "Le stock est obligatoire")
     .refine((value) => Number.isInteger(Number(value)) && Number(value) >= 0, "Le stock doit etre un entier positif ou nul"),
   categorie: z.string().trim().min(1, "La categorie est obligatoire"),
+  options: z.array(z.string()).optional(),
 });
 
 function UpdateProduit() {
@@ -30,6 +31,7 @@ function UpdateProduit() {
     prix: "",
     stock: "",
     categorie: "",
+    options: [],
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -49,6 +51,7 @@ function UpdateProduit() {
             prix: data.prix.toString(),
             stock: data.stock.toString(),
             categorie: data.categorie,
+            options: data.options || [],
           });
         }
       })
@@ -57,8 +60,18 @@ function UpdateProduit() {
   }, [id, fetchProduitById]);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    if (type === "checkbox" && name === "options") {
+      setFormData((prev) => {
+        if (checked) {
+          return { ...prev, options: [...prev.options, value] };
+        } else {
+          return { ...prev, options: prev.options.filter((opt) => opt !== value) };
+        }
+      });
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -173,13 +186,51 @@ function UpdateProduit() {
 
             <Form.Group className="mb-3">
               <Form.Label>Catégorie</Form.Label>
-              <Form.Control
-                type="text"
+              <Form.Select
                 name="categorie"
                 value={formData.categorie}
                 onChange={handleChange}
-                placeholder="ex: Informatique, Accessoires..."
-              />
+              >
+                <option value="">Sélectionnez une catégorie</option>
+                <option value="Informatique">Informatique</option>
+                <option value="Accessoires">Accessoires</option>
+                <option value="Moniteurs">Moniteurs</option>
+                <option value="Composants">Composants</option>
+                <option value="Autre">Autre</option>
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Options (Villes)</Form.Label>
+              <div>
+                <Form.Check
+                  inline
+                  type="checkbox"
+                  label="Lyon"
+                  name="options"
+                  value="Lyon"
+                  checked={formData.options.includes("Lyon")}
+                  onChange={handleChange}
+                />
+                <Form.Check
+                  inline
+                  type="checkbox"
+                  label="Marseille"
+                  name="options"
+                  value="Marseille"
+                  checked={formData.options.includes("Marseille")}
+                  onChange={handleChange}
+                />
+                <Form.Check
+                  inline
+                  type="checkbox"
+                  label="Paris"
+                  name="options"
+                  value="Paris"
+                  checked={formData.options.includes("Paris")}
+                  onChange={handleChange}
+                />
+              </div>
             </Form.Group>
 
             <div className="d-flex gap-2">
