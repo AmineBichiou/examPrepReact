@@ -1,0 +1,37 @@
+{
+  "produits": [
+    {
+      "xd": "Souris Sans Filaaa",
+      "description": "Souris ergoxdique sans fil avec autoxdie de 12 moisaaa",
+      "prix": 39.91,
+      "stock": 10011,
+      "categorie": "Accessoires",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "xd": "Ecran 27 pouces",
+      "description": "Ecran 4K IPS avec taux de rafraichissement 144Hz",
+      "prix": 449.99,
+      "stock": 15,
+      "categorie": "Moniteurs"
+    },
+    {
+      "id": "4",
+      "xd": "Clavier Mecanique",
+      "description": "Clavier mecanique RGB avec switches Cherry MX Blue",
+      "prix": 89.99,
+      "stock": 60,
+      "categorie": "Accessoires"
+    },
+    {
+      "id": "b71f",
+      "xd": "aw",
+      "description": "awa",
+      "prix": 11,
+      "stock": 11,
+      "categorie": "aqww"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
