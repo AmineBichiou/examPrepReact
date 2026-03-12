@@ -8,6 +8,7 @@ const ProduitDetails = React.lazy(() => import("./component/produit/ProduitDetai
 const AddProduit = React.lazy(() => import("./component/produit/AddProduit"));
 const UpdateProduit = React.lazy(() => import("./component/produit/UpdateProduit"));
 const NotFound = React.lazy(() => import("./component/produit/NotFound"));
+const App = React.lazy(() => import("./App"));
 
 // Router creation
 export const router = createBrowserRouter([
@@ -15,11 +16,11 @@ export const router = createBrowserRouter([
     path: "/",
     element: <RootLayout />,
     children: [
-      { index: true, element: <Produits /> },
-      { path: "vehicles", element: <Produits /> },
-      { path: "vehicles/:id", element: <ProduitDetails /> },
-      { path: "add-vehicle", element: <AddProduit /> },
-      { path: "update-vehicle/:id", element: <UpdateProduit /> },
+      { index: true, element: <App /> },
+      { path: "produits", element: <Produits /> },
+      { path: "produits/:id", element: <ProduitDetails /> },
+      { path: "add-produit", element: <AddProduit /> },
+      { path: "update-produit/:id", element: <UpdateProduit /> },
       { path: "*", element: <NotFound /> },
     ],
   },
